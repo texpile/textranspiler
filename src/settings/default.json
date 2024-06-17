@@ -1,0 +1,43 @@
+{
+    "package": {
+        "geometry": "margin=1in",
+        "inputenc": "utf8",
+        "graphicx": "",
+        "amsmath": "",
+        "tabularx": "",
+        "longtable": ""
+    },
+    "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}",
+    "config": {
+        "sanitizetext": true
+    },
+    "rules": {
+        "heading": {
+            "1": "\\section{#text#}",
+            "2": "\\subsection{#text#}",
+            "3": "\\subsubsection{#text#}",
+            "4": "\\paragraph{#text#}",
+            "5": "\\subparagraph{#text#}",
+            "6": "\\textbf{#text#}"
+        },
+        "paragraph": "#text#",
+        "code_block": "\\begin{verbatim}\n#text#\n\\end{verbatim}",
+        "inline_math": "$#value#$",
+        "text": {
+            "bold": "\\textbf{#text#}",
+            "italic": "\\textit{#text#}",
+            "underline": "\\underline{#text#}",
+            "code": "\\texttt{#text#}"
+        },
+        "blockquote": "\\begin{quote}\n#content#\n\\end{quote}",
+        "list": {
+            "ordered": "\\begin{enumerate}\n#content#\n\\end{enumerate}",
+            "bullet": "\\begin{itemize}\n#content#\n\\end{itemize}"
+        },
+        "list_item": "\\item #content#",
+        "image": "\\begin{center}\n\\includegraphics[width=#width#,height=#height#]{#src#}\n\\end{center}",
+        "table": "\\begin{longtable}{#columns#}\n\\hline\n#content#\n\\end{longtable}",
+        "table_row": "#content# \\\\ \\hline",
+        "table_cell": "#content# &"
+    }
+}
