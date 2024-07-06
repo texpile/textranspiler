@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import * as path from "path";
 
 interface DocumentNode {
   type: string;
@@ -23,17 +22,28 @@ interface Settings {
 const document: DocumentNode = require("./sample/test.json");
 const settings: Settings = require("./settings/default.json");
 
-const replacePlaceholders = (
+function replacePlaceholders(
   template: string,
-  replacements: { [key: string]: string }
-): string => {
+  replacements: { [key: string]: string },
+  newline = false
+): string {
+  if (newline) {
+    return (
+      "\n" +
+      template.replace(
+        /#([^#]+)#/g,
+        (_, key) => replacements[key.trim()] || ""
+      ) +
+      "\n"
+    );
+  }
   return template.replace(
     /#([^#]+)#/g,
     (_, key) => replacements[key.trim()] || ""
   );
-};
+}
 
-const sanitizeText = (text: string): string => {
+function sanitizeText(text: string): string {
   const replacements: { [key: string]: string } = {
     "\\": "\\textbackslash{}",
     "{": "\\{",
@@ -47,35 +57,63 @@ const sanitizeText = (text: string): string => {
     "~": "\\textasciitilde{}",
   };
   return text.replace(/([\\{}#%&$^_~])/g, (match) => replacements[match]);
-};
+}
 
-const transpileDocument = (
+function getNodeByIndex(
   doc: DocumentNode,
-  rules: any,
-  config: any
-): string => {
+  indexArray: number[]
+): DocumentNode | null {
+  let node: DocumentNode | null = doc;
+  for (const index of indexArray) {
+    if (!node || !node.content || node.content.length <= index) {
+      return null;
+    }
+    node = node.content[index];
+  }
+  return node;
+}
+
+function isSameListKind(node: DocumentNode | null, kind: string) {
+  return node && node.type === "list" && node.attrs!.kind === kind;
+}
+
+function transpileDocument(doc: DocumentNode, rules: any, config: any): string {
   let latex = "";
 
-  const transpileNode = (node: DocumentNode): string => {
+  function transpileNode(node: DocumentNode, indexArray: number[]): string {
     let result = "";
 
     switch (node.type) {
       case "doc":
-        node.content?.forEach((child) => {
-          result += transpileNode(child);
+        node.content?.forEach((child, idx) => {
+          result += transpileNode(child, [idx]);
         });
         break;
       case "heading":
         const headingRule = rules.heading[node.attrs!.level];
         result = replacePlaceholders(headingRule, {
-          text: transpileNode({ type: "text", text: node.content![0].text }),
+          text: transpileNode(
+            { type: "text", text: node.content![0].text },
+            indexArray.concat(0)
+          ),
         });
         break;
       case "paragraph":
         if (node.content) {
-          result = node.content.map(transpileNode).join("");
+          if (
+            node.content.length == 1 &&
+            node.content[0].type == "inline_math"
+          ) {
+            result = replacePlaceholders(rules.block_math, {
+              text: node.content[0].attrs!.value,
+            });
+            break;
+          }
+          result = node.content
+            .map((child, idx) => transpileNode(child, indexArray.concat(idx)))
+            .join("");
         }
-        result = replacePlaceholders(rules.paragraph, { text: result });
+        result = replacePlaceholders(rules.paragraph, { text: result }, true);
         break;
       case "text":
         result = node.text!;
@@ -92,9 +130,13 @@ const transpileDocument = (
         }
         break;
       case "code_block":
-        result = replacePlaceholders(rules.code_block, {
-          text: node.content![0].text!,
-        });
+        result = replacePlaceholders(
+          rules.code_block,
+          {
+            text: node.content![0].text!,
+          },
+          true
+        );
         break;
       case "inline_math":
         result = replacePlaceholders(rules.inline_math, {
@@ -102,7 +144,11 @@ const transpileDocument = (
         });
         break;
       case "blockquote":
-        const blockquoteContent = node.content!.map(transpileNode).join("");
+        const blockquoteContent = node
+          .content!.map((child, idx) =>
+            transpileNode(child, indexArray.concat(idx))
+          )
+          .join("");
         result = replacePlaceholders(rules.blockquote, {
           content: blockquoteContent,
         });
@@ -110,15 +156,36 @@ const transpileDocument = (
       case "list":
         const listKind = node.attrs!.kind;
         const listItems = node
-          .content!.map((item) =>
+          .content!.map((item, idx) =>
             replacePlaceholders(rules.list_item, {
-              content: transpileNode(item),
+              content: transpileNode(item, indexArray.concat(idx)),
             })
           )
-          .join("\n");
-        result = replacePlaceholders(rules.list[listKind], {
-          content: listItems,
-        });
+          .join("");
+
+        const previousNode = getNodeByIndex(
+          doc,
+          indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] - 1)
+        );
+
+        console.log(previousNode)
+        const nextNode = getNodeByIndex(
+          doc,
+          indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] + 1)
+        );
+
+        const isPreviousListSame = isSameListKind(previousNode, listKind);
+        const isNextListSame = isSameListKind(nextNode, listKind);
+
+        if (!isPreviousListSame) {
+          result += rules.list[listKind].split("#content#")[0]
+        }
+
+        result += listItems;
+
+        if (!isNextListSame) {
+          result += rules.list[listKind].split("#content#")[1]
+        }
         break;
       case "image":
         result = replacePlaceholders(rules.image, {
@@ -128,9 +195,13 @@ const transpileDocument = (
         });
         break;
       case "table":
-        const tableRows = node.content!.map(transpileNode).join("\n");
+        const tableRows = node
+          .content!.map((child, idx) =>
+            transpileNode(child, indexArray.concat(idx))
+          )
+          .join("\n");
         const numColumns = node.content![0].content!.length;
-        const columns = "|" + Array(numColumns).fill("X").join("|") + "|";
+        const columns = Array(numColumns).fill("X").join("|");
         result = replacePlaceholders(rules.table, {
           columns: columns,
           content: tableRows,
@@ -138,13 +209,17 @@ const transpileDocument = (
         break;
       case "table_row":
         const tableCells = node
-          .content!.map((cell) => transpileNode(cell).slice(0, -1))
+          .content!.map((cell, idx) =>
+            transpileNode(cell, indexArray.concat(idx)).slice(0, -1)
+          )
           .join(" & ");
         result = replacePlaceholders(rules.table_row, { content: tableCells });
         break;
       case "table_cell":
         result = replacePlaceholders(rules.table_cell, {
-          content: node.content ? transpileNode(node.content[0]) : "",
+          content: node.content
+            ? transpileNode(node.content[0], indexArray.concat(0))
+            : "",
         });
         break;
       default:
@@ -152,16 +227,13 @@ const transpileDocument = (
     }
 
     return result;
-  };
+  }
 
-  latex += transpileNode(doc);
+  latex += transpileNode(doc, []);
   return latex;
-};
+}
 
-const generateLatexDocument = (
-  doc: DocumentNode,
-  settings: Settings
-): string => {
+function generateLatexDocument(doc: DocumentNode, settings: Settings): string {
   const packages = Object.entries(settings.package)
     .map(([pkg, options]) => `\\usepackage[${options}]{${pkg}}`)
     .join("\n");
@@ -169,7 +241,7 @@ const generateLatexDocument = (
   const content = transpileDocument(doc, settings.rules, settings.config);
 
   return `\\documentclass{article}\n${packages}\n${preamble}\n\\begin{document}\n${content}\n\\end{document}`;
-};
+}
 
 const latexDocument = generateLatexDocument(document, settings);
 fs.writeFileSync("output.tex", latexDocument);

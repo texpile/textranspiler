@@ -4,8 +4,7 @@
         "inputenc": "utf8",
         "graphicx": "",
         "amsmath": "",
-        "tabularx": "",
-        "longtable": ""
+        "tabularx": ""
     },
     "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}",
     "config": {
@@ -13,9 +12,9 @@
     },
     "rules": {
         "heading": {
-            "1": "\\section{#text#}",
-            "2": "\\subsection{#text#}",
-            "3": "\\subsubsection{#text#}",
+            "1": "\\section*{#text#}",
+            "2": "\\subsection*{#text#}",
+            "3": "\\subsubsection*{#text#}",
             "4": "\\paragraph{#text#}",
             "5": "\\subparagraph{#text#}",
             "6": "\\textbf{#text#}"
@@ -23,6 +22,7 @@
         "paragraph": "#text#",
         "code_block": "\\begin{verbatim}\n#text#\n\\end{verbatim}",
         "inline_math": "$#value#$",
+        "block_math": "\\begin{equation}\n#text#\n\\end{equation}",
         "text": {
             "bold": "\\textbf{#text#}",
             "italic": "\\textit{#text#}",
@@ -36,7 +36,7 @@
         },
         "list_item": "\\item #content#",
         "image": "\\begin{center}\n\\includegraphics[width=#width#,height=#height#]{#src#}\n\\end{center}",
-        "table": "\\begin{longtable}{#columns#}\n\\hline\n#content#\n\\end{longtable}",
+        "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\ \\hline",
         "table_cell": "#content# &"
     }
