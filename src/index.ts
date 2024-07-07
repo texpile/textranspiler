@@ -32,7 +32,8 @@ async function transpileDocument(
         rules,
         config,
         transpileNode,
-        indexArray
+        indexArray,
+        doc
       );
     } catch (error) {
       console.error(`Error loading module for node type ${nodeType}`, error);

@@ -12,9 +12,9 @@ export default async function transpileList(
   let result = "";
   const listKind = node.attrs!.kind;
   const listItems = await Promise.all(
-    node.content!.map((item, idx) =>
+    node.content!.map(async (item, idx) =>
       replacePlaceholders(rules.list_item, {
-        content: transpileNode(item, indexArray.concat(idx)),
+        content: await transpileNode(item, indexArray.concat(idx)),
       })
     )
   );
@@ -28,6 +28,8 @@ export default async function transpileList(
     doc,
     indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] + 1)
   );
+
+  console.log(nextNode)
 
   const isPreviousListSame = isSameListKind(previousNode, listKind);
   const isNextListSame = isSameListKind(nextNode, listKind);
