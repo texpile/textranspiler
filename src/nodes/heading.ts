@@ -1,12 +1,13 @@
 import type { DocumentNode } from "../types/default";
 import { replacePlaceholders } from "../utils";
 
-export default function transpileHeading(node: DocumentNode, rules: any, config: any, transpileNode: Function, indexArray: number[]): string {
+export default async function transpileHeading(node: DocumentNode, rules: any, config: any, transpileNode: Function, indexArray: number[]) {
   const headingRule = rules.heading[node.attrs!.level];
+  const text = await transpileNode(
+    { type: "text", text: node.content![0].text },
+    indexArray.concat(0)
+  )
   return replacePlaceholders(headingRule, {
-    text: transpileNode(
-      { type: "text", text: node.content![0].text },
-      indexArray.concat(0)
-    ),
+    text: text
   });
 }

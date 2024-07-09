@@ -11,7 +11,8 @@ export default function transpileCodeBlock(
   return replacePlaceholders(
     rules.code_block,
     {
-      text: node.content![0].text!,
+      lang: node.attrs!.lang,
+      text: node.content![0].text!
     },
     true
   );

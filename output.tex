@@ -4,33 +4,25 @@
 \usepackage[]{graphicx}
 \usepackage[]{amsmath}
 \usepackage[]{tabularx}
+\usepackage[]{listings}
+\usepackage[]{xcolor}
 \title{My Document}\author{Author Name}\date{\today}
-\begin{document}
-\begin{enumerate}
-\item 
-asfasf
-\item 
-asfasfasf
-\item 
-asfasfasf
-\item 
-asfasfasfas
-\item 
-fasf
-\item 
-asfas
-\item 
-fas
-\item 
-asf
-\item 
-asf
-\item 
-asf
-\item 
-asasf
-\item 
-asf
+\setlength{\parindent}{0pt}
+\lstdefinestyle{defaultstyle}{backgroundcolor=\color{white},basicstyle=\ttfamily\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\color[rgb]{0.1,0.5,0.1},keywordstyle=\color[rgb]{0.1,0.1,0.7},stringstyle=\color[rgb]{0.7,0.1,0.1},identifierstyle=\color{black},numberstyle=\tiny\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\color[rgb]{0.5,0.5,0.5},title=\lstname}
 
-\end{enumerate}
+\begin{document}
+
+asfasfasfasf
+
+
+
+\begin{lstlisting}[style=defaultstyle, language=Java, caption={}]
+class Main{
+  public static void main(String args[]){
+
+  }
+
+}
+\end{lstlisting}
+
 \end{document}

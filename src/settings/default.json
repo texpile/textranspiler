@@ -4,9 +4,11 @@
         "inputenc": "utf8",
         "graphicx": "",
         "amsmath": "",
-        "tabularx": ""
+        "tabularx": "",
+        "listings":"",
+        "xcolor":""
     },
-    "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}",
+    "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
     "config": {
         "sanitizetext": true
     },
@@ -20,7 +22,7 @@
             "6": "\\textbf{#text#}"
         },
         "paragraph": "#text#",
-        "code_block": "\\begin{verbatim}\n#text#\n\\end{verbatim}",
+        "code_block": "\\begin{lstlisting}[style=defaultstyle, language=#lang#, caption={#caps#}]\n#text#\n\\end{lstlisting}",
         "inline_math": "$#value#$",
         "block_math": "\\begin{equation}\n#text#\n\\end{equation}",
         "text": {
