@@ -16,6 +16,7 @@ async function transpileDocument(
 ): Promise<string> {
   let latex = "";
   let callcount = 0;
+  console.time("transpileDocument");
 
   async function transpileNode(
     node: DocumentNode,
@@ -48,6 +49,7 @@ async function transpileDocument(
   console.log(node);
   latex += node;
   console.log("Total call: " + callcount)
+  console.timeEnd("transpileDocument");
   return latex;
 }
 
