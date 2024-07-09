@@ -13,7 +13,6 @@ export default async function transpileList(
   const listKind = node.attrs!.kind;
   const listItems = await Promise.all(
     node.content!.map(async (item, idx) => {
-      console.log(item.content);
       /*
       Due to the recursive nature of the transpiler, lets assume we have a list node with the child of 2 list node
             List
