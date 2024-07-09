@@ -15,11 +15,13 @@ async function transpileDocument(
   config: any
 ): Promise<string> {
   let latex = "";
+  let callcount = 0;
 
   async function transpileNode(
     node: DocumentNode,
     indexArray: number[]
   ): Promise<string> {
+    callcount++;
     let result = "";
 
     const nodeType = node.type;
@@ -45,6 +47,7 @@ async function transpileDocument(
   const node = await transpileNode(doc, []);
   console.log(node);
   latex += node;
+  console.log("Total call: " + callcount)
   return latex;
 }
 

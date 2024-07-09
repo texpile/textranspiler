@@ -37,6 +37,7 @@
             "bullet": "\\begin{itemize}\n#content#\n\\end{itemize}"
         },
         "list_item": "\\item #content#",
+        "nolabel_list_item": "\\item[] #content#",
         "image": "\\begin{center}\n\\includegraphics[width=#width#,height=#height#]{#src#}\n\\end{center}",
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\ \\hline",
