@@ -25,12 +25,6 @@
         "code_block": "\\begin{lstlisting}[style=defaultstyle, language=#lang#, caption={#caps#}]\n#text#\n\\end{lstlisting}",
         "inline_math": "$#value#$",
         "block_math": "\\begin{equation}\n#text#\n\\end{equation}",
-        "text": {
-            "bold": "\\textbf{#text#}",
-            "italic": "\\textit{#text#}",
-            "underline": "\\underline{#text#}",
-            "code": "\\texttt{#text#}"
-        },
         "blockquote": "\\begin{quote}\n#content#\n\\end{quote}",
         "list": {
             "ordered": "\\begin{enumerate}\n#content#\n\\end{enumerate}",
@@ -41,6 +35,12 @@
         "image": "\\begin{center}\n\\includegraphics[width=#width#,height=#height#]{#src#}\n\\end{center}",
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\ \\hline",
-        "table_cell": "#content# &"
+        "table_cell": "#content# &",
+        "marks": {
+            "strong": "\\textbf{#text#}",
+            "em": "\\textit{#text#}",
+            "u": "\\underline{#text#}",
+            "code": "\\texttt{#text#}"
+        }
     }
 }

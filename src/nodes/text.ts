@@ -14,7 +14,7 @@ export default function transpileText(
   }
   if (node.marks) {
     node.marks.forEach((mark) => {
-      const textRule = rules.text[mark.type];
+      const textRule = rules.marks[mark.type];
       if (textRule) {
         result = replacePlaceholders(textRule, { text: result });
       }
