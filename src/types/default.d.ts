@@ -16,3 +16,9 @@ export interface Settings {
     [key: string]: any;
   };
 }
+export type UploadResource = {
+	type: 'image' | 'LaTeXEntry';
+	file: string;
+	content?: string;
+	url?: string;
+};

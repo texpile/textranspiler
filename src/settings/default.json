@@ -32,7 +32,9 @@
         },
         "list_item": "\\item #content#",
         "nolabel_list_item": "\\item[] #content#",
-        "image": "\\begin{center}\n\\includegraphics[width=#width#,height=#height#]{#src#}\n\\end{center}",
+        "image": {
+            "center": "\\begin{figure}[h]\n\\centering\n\\includegraphics[width=#scale#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{figure}"
+        },
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\ \\hline",
         "table_cell": "#content# &",
