@@ -32,6 +32,7 @@ export default function transpileImage(
   if (!previousNode || !nodeb4prevNode) {
     // console.warn('One or both of the nodes do not exist.');
   } else if (previousNode.type !== 'paragraph' || nodeb4prevNode.type !== 'paragraph') {
+    //not having 2 or more paragraph in LaTeX will cause wrap figure to float
     console.warn(`\x1b[33m${indexArray}: Possible LaTeX Warning: Stationary wrapfigure forced to float\x1b[0m`);
   }
 
