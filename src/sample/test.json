@@ -7,12 +7,29 @@
         {
             "type": "image",
             "attrs": {
+                "src": "users/BWueL8ZEBrhp5AxlqiNQVt8wvJl1/e70019af-2bc8-429b-b444-8f514ca04c44/images/image/74514fc3-d117-4111-8704-fb60f8b7c5ab-1720584979431.png",
+                "alt": "Image",
+                "height": 364,
+                "width": 610,
+                "maxWidth": 1137,
+                "align": "left"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Image title"
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "attrs": {
                 "src": "users/BWueL8ZEBrhp5AxlqiNQVt8wvJl1/e70019af-2bc8-429b-b444-8f514ca04c44/images/image/d2e28176-f7b5-4c10-a9a0-143e79b60aac-1720568057977.png",
                 "alt": "Image",
-                "height": 411,
-                "width": 744,
+                "height": 234,
+                "width": 424,
                 "maxWidth": 748,
-                "align": "center"
+                "align": "right"
             },
             "content": [
                 {

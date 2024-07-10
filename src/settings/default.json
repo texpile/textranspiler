@@ -6,7 +6,8 @@
         "amsmath": "",
         "tabularx": "",
         "listings":"",
-        "xcolor":""
+        "xcolor":"",
+        "wrapfig":""
     },
     "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
     "config": {
@@ -33,7 +34,10 @@
         "list_item": "\\item #content#",
         "nolabel_list_item": "\\item[] #content#",
         "image": {
-            "center": "\\begin{figure}[h]\n\\centering\n\\includegraphics[width=#scale#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{figure}"
+            "center": "\\begin{figure}[h]\n\\centering\n\\includegraphics[width=#scale#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{figure}",
+            "margin": "0.02",
+            "left": "\\begin{wrapfigure}{l}{#scale#\\textwidth}\n\\centering\n\\includegraphics[width=#scale2#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{wrapfigure}",
+            "right": "\\begin{wrapfigure}{r}{#scale#\\textwidth}\n\\centering\n\\includegraphics[width=#scale2#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{wrapfigure}"
         },
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\ \\hline",

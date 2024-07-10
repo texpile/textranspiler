@@ -1,5 +1,5 @@
 import type { DocumentNode, UploadResource } from '../types/default';
-import { replacePlaceholders } from '../utils';
+import { getNodeByIndex, replacePlaceholders } from '../utils';
 
 export default function transpileImage(
   node: DocumentNode,
@@ -24,5 +24,29 @@ export default function transpileImage(
       caps: node.attrs.alt,
       scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1)
     });
-  } 
+  }
+  //check if the previous 2 node is all paragraph
+  const previousNode = getNodeByIndex(doc, indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] - 1));
+  const nodeb4prevNode = getNodeByIndex(doc, indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] - 2));
+  //check if these 2 nodes are both paragraph
+  if (!previousNode || !nodeb4prevNode) {
+    // console.warn('One or both of the nodes do not exist.');
+  } else if (previousNode.type !== 'paragraph' || nodeb4prevNode.type !== 'paragraph') {
+    console.warn(`\x1b[33m${indexArray}: Possible LaTeX Warning: Stationary wrapfigure forced to float\x1b[0m`);
+  }
+
+  if (node.attrs?.align == 'left') {
+    return replacePlaceholders(rules.image.left, {
+      src: filename,
+      caps: node.attrs.alt,
+      scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
+      scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
+    });
+  }
+  return replacePlaceholders(rules.image.right, {
+    src: filename,
+    caps: node.attrs.alt,
+    scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
+    scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
+  });
 }
