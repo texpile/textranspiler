@@ -14,6 +14,6 @@ export default async function transpileTableRow(
     )
   );
   return replacePlaceholders(rules.table_row, {
-    content: tableCells.join(" & "),
+    content: tableCells.join(""),
   });
 }

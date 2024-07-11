@@ -12,9 +12,9 @@ export default async function transpileTable(
     node.content!.map((child, idx) => transpileNode(child, indexArray.concat(idx)))
   );
   const numColumns = node.content![0].content!.length;
-  const columns = Array(numColumns).fill("X").join("|");
+  const columns = "|" + Array(numColumns).fill("X").join("|") + "|";
   return replacePlaceholders(rules.table, {
     columns: columns,
-    content: tableRows.join("\n"),
-  });
+    content: tableRows.join(""),
+  }, true);
 }

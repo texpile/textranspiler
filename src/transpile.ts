@@ -33,7 +33,6 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
   }
 
   const node = await transpileNode(doc, []);
-  console.log(node);
   latex += node;
   console.log('Total call: ' + callcount);
   console.timeEnd('transpileDocument');

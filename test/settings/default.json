@@ -47,7 +47,7 @@
             "right": "\\begin{wrapfigure}{r}{#scale#\\textwidth}\n\\centering\n\\includegraphics[width=#scale2#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{wrapfigure}"
         },
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
-        "table_row": "#content# \\\\ \\hline",
+        "table_row": "#content# \\\\\\hline",
         "table_cell": "#content# &",
         "marks": {
             "strong": "\\textbf{#text#}",
