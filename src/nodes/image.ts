@@ -22,7 +22,7 @@ export default function transpileImage(
     return replacePlaceholders(rules.image.center, {
       src: filename,
       caps: node.attrs.alt,
-      scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1)
+      scale: '' + (node.attrs.width ?? 0.5) / (node.attrs.maxWidth ?? 1)
     },true);
   }
   //check if the previous 2 node is all paragraph
