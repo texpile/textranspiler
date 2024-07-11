@@ -36,7 +36,7 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
   latex += node;
   console.log('Total call: ' + callcount);
   console.timeEnd('transpileDocument');
-  return [latex, sentfiles as never];
+  return [latex, JSON.stringify(sentfiles)];
 }
 
 export async function generateLatexDocument(doc: DocumentNode, settings: Settings): Promise<string[]> {
