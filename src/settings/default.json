@@ -19,8 +19,7 @@
             "2": "\\subsection*{#text#}",
             "3": "\\subsubsection*{#text#}",
             "4": "\\paragraph{#text#}",
-            "5": "\\subparagraph{#text#}",
-            "6": "\\textbf{#text#}"
+            "5": "\\subparagraph{#text#}"
         },
         "paragraph": "#text#",
         "code_block": "\\begin{lstlisting}[style=defaultstyle, language=#lang#, caption={#caps#}]\n#text#\n\\end{lstlisting}",

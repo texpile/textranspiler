@@ -2,41 +2,843 @@
     "type": "doc",
     "content": [
         {
+            "type": "heading",
+            "attrs": {
+                "level": 1
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Demo Document"
+                }
+            ]
+        },
+        {
+            "type": "blockquote",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "The following document can be used to test compiler configuration to ensure a sucessful LaTeX code generation"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "paragraph"
         },
         {
-            "type": "image",
+            "type": "heading",
             "attrs": {
-                "src": "users/BWueL8ZEBrhp5AxlqiNQVt8wvJl1/e70019af-2bc8-429b-b444-8f514ca04c44/images/image/74514fc3-d117-4111-8704-fb60f8b7c5ab-1720584979431.png",
-                "alt": "Image",
-                "height": 364,
-                "width": 610,
-                "maxWidth": 1137,
-                "align": "left"
+                "level": 2
             },
             "content": [
                 {
                     "type": "text",
-                    "text": "Image title"
+                    "text": "Section 1: paragraph"
                 }
             ]
         },
         {
-            "type": "image",
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "strong"
+                        }
+                    ],
+                    "text": "Lorem"
+                },
+                {
+                    "type": "text",
+                    "text": " ipsum "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "strong"
+                        }
+                    ],
+                    "text": "dolor"
+                },
+                {
+                    "type": "text",
+                    "text": " sit "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "u"
+                        }
+                    ],
+                    "text": "amet"
+                },
+                {
+                    "type": "text",
+                    "text": ", "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "em"
+                        },
+                        {
+                            "type": "code"
+                        }
+                    ],
+                    "text": "consectetur"
+                },
+                {
+                    "type": "text",
+                    "text": " "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "code"
+                        }
+                    ],
+                    "text": "adipiscing"
+                },
+                {
+                    "type": "text",
+                    "text": " "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "em"
+                        }
+                    ],
+                    "text": "elit"
+                },
+                {
+                    "type": "text",
+                    "text": ". Fusce interdum, "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "strong"
+                        }
+                    ],
+                    "text": "justo eu bibendum efficitur, nisl lorem gravida velit, at posuere ante urna vel est. Nam a mollis erat. Sed et commodo ligula. Nullam dapibus sed enim quis dictum. Etiam efficitur justo in massa dignissim, iaculis dictum libero dictum. Pellentesque fringilla eget justo ac porta."
+                },
+                {
+                    "type": "text",
+                    "text": " "
+                },
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "u"
+                        }
+                    ],
+                    "text": "Curabitur id magna eget ante pharetra pretium at fermentum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eu justo a ex maximus volutpat sit amet at tellus. Sed quis diam eget ligula laoreet viverra sed fringilla magna."
+                },
+                {
+                    "type": "text",
+                    "text": " Vivamus consectetur ac nulla nec euismod. Vestibulum pretium nunc a blandit feugiat."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "marks": [
+                        {
+                            "type": "em"
+                        },
+                        {
+                            "type": "strong"
+                        },
+                        {
+                            "type": "u"
+                        }
+                    ],
+                    "text": "Morbi sollicitudin nibh ac mattis interdum."
+                },
+                {
+                    "type": "text",
+                    "text": " Fusce auctor, odio a volutpat eleifend, velit risus aliquam nisi, faucibus accumsan diam felis et mauris. Cras vel feugiat leo. Cras urna sapien, dignissim sed efficitur id, scelerisque sed velit. "
+                }
+            ]
+        },
+        {
+            "type": "paragraph"
+        },
+        {
+            "type": "heading",
             "attrs": {
-                "src": "users/BWueL8ZEBrhp5AxlqiNQVt8wvJl1/e70019af-2bc8-429b-b444-8f514ca04c44/images/image/d2e28176-f7b5-4c10-a9a0-143e79b60aac-1720568057977.png",
-                "alt": "Image",
-                "height": 234,
-                "width": 424,
-                "maxWidth": 748,
-                "align": "right"
+                "level": 2
             },
             "content": [
                 {
                     "type": "text",
-                    "text": "Image title"
+                    "text": "Section 2: subsections"
                 }
             ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Suspendisse pellentesque enim in enim rutrum, a sodales odio tincidunt. "
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Sed commodo mi diam, a viverra velit aliquam fringilla. "
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "In placerat lectus ac porttitor rutrum. Nunc hendrerit est vel placerat vestibulum. Morbi sit amet eros justo. "
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Sed bibendum ante in nulla bibendum porta. "
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Nam efficitur magna in semper bibendum. Donec cursus magna non enim faucibus efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas hendrerit velit eget faucibus pharetra."
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 5
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Integer massa ante, feugiat in lacus eget, eleifend volutpat dolor."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Integer massa ante, feugiat in lacus eget, eleifend volutpat dolor. "
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Section 3: Math"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Euler's number, denoted as "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "e",
+                        "indexFrom": 1,
+                        "indexTo": 1
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ", is a fundamental mathematical constant approximately equal to "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "2.71828",
+                        "indexFrom": 7,
+                        "indexTo": 7
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ". It is named after the Swiss mathematician Leonhard Euler and is the base of natural logarithms. Euler's number is significant in various areas of mathematics, including calculus, complex analysis, and number theory. Euler's number is used to model exponential growth and decay processes, such as population growth, radioactive decay, and interest calculations in finance. The natural logarithm, denoted as "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "\\ln\\left(x\\right)",
+                        "indexFrom": 17,
+                        "indexTo": 17
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ", is the logarithm to the base "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "e",
+                        "indexFrom": 1,
+                        "indexTo": 1
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ". This function has important properties in calculus and is the inverse of the exponential function "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "e^{x}",
+                        "indexFrom": 2,
+                        "indexTo": 2
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ". In complex analysis, Euler's formula states that "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": " e^{ix} = \\cos(x) + i\\sin(x) ",
+                        "indexFrom": 29,
+                        "indexTo": 29
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": ", where "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "i",
+                        "indexFrom": 1,
+                        "indexTo": 1
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": " is the imaginary unit. This formula establishes a deep relationship between trigonometric functions and the exponential function. The function "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": " e^x",
+                        "indexFrom": 4,
+                        "indexTo": 4
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": " is unique in that it is equal to its own derivative and integral. This property makes it a critical function in differential equations and mathematical modeling. Euler's number can be expressed as an infinite series: "
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "e = \\sum_{n=0}^{\\infty} \\frac{1}{n!} = 1 + \\frac{1}{1!} + \\frac{1}{2!} + \\frac{1}{3!} + \\cdots",
+                        "indexFrom": 94,
+                        "indexTo": 94
+                    }
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": " It can also be defined as the limit of the following expression as "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "n",
+                        "indexFrom": 1,
+                        "indexTo": 1
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": " approaches infinity: "
+                },
+                {
+                    "type": "inline_math",
+                    "attrs": {
+                        "value": "e = \\lim_{n \\to \\infty} \\left( 1 + \\frac{1}{n} \\right)^n",
+                        "indexFrom": 56,
+                        "indexTo": 56
+                    }
+                },
+                {
+                    "type": "text",
+                    "text": " Euler's number is not just a mathematical curiosity but a cornerstone of various mathematical theories and applications, highlighting its profound importance in both pure and applied mathematics."
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Section 4: Listing "
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "attrs": {
+                "kind": "bullet",
+                "order": null,
+                "checked": false,
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                        }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "attrs": {
+                        "kind": "bullet",
+                        "order": null,
+                        "checked": false,
+                        "collapsed": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "In tincidunt orci non sapien porta hendrerit."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "attrs": {
+                                "kind": "bullet",
+                                "order": null,
+                                "checked": false,
+                                "collapsed": false
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Nunc gravida erat ac commodo ornare."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "list",
+                                    "attrs": {
+                                        "kind": "bullet",
+                                        "order": null,
+                                        "checked": false,
+                                        "collapsed": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Vivamus efficitur purus vel ultricies maximus."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "list",
+                                    "attrs": {
+                                        "kind": "bullet",
+                                        "order": null,
+                                        "checked": false,
+                                        "collapsed": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Quisque in lacus dictum, sollicitudin nibh vitae, rutrum tortor."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "attrs": {
+                                "kind": "bullet",
+                                "order": null,
+                                "checked": false,
+                                "collapsed": false
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Sed tincidunt diam quis neque tincidunt, ac sodales lacus suscipit."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "attrs": {
+                        "kind": "bullet",
+                        "order": null,
+                        "checked": false,
+                        "collapsed": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Vestibulum pharetra est non suscipit placerat."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "attrs": {
+                "kind": "bullet",
+                "order": null,
+                "checked": false,
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Pellentesque eget sapien id nibh placerat blandit vitae nec diam."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "attrs": {
+                "kind": "ordered",
+                "order": null,
+                "checked": false,
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Calculus: "
+                        },
+                        {
+                            "type": "inline_math",
+                            "attrs": {
+                                "value": "\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}",
+                                "indexFrom": 51,
+                                "indexTo": 51
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "attrs": {
+                "kind": "ordered",
+                "order": null,
+                "checked": false,
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Function: "
+                        },
+                        {
+                            "type": "inline_math",
+                            "attrs": {
+                                "value": "f(x) = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n+1)!} x^{2n+1}\n",
+                                "indexFrom": 59,
+                                "indexTo": 59
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "attrs": {
+                        "kind": "ordered",
+                        "order": null,
+                        "checked": false,
+                        "collapsed": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "marks": [
+                                        {
+                                            "type": "em"
+                                        }
+                                    ],
+                                    "text": "Donec sagittis mauris ut placerat ultrices."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "attrs": {
+                "kind": "ordered",
+                "order": null,
+                "checked": false,
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Suspendisse dignissim orci non porttitor rhoncus."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Section 5: Tables"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Basic table"
+                }
+            ]
+        },
+        {
+            "type": "table",
+            "content": [
+                {
+                    "type": "table_row",
+                    "content": [
+                        {
+                            "type": "table_cell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": null,
+                                "background": null
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec imperdiet velit. Integer eget justo libero. Morbi tellus ex, convallis sit amet ex vel, efficitur euismod leo. Aliquam blandit lorem id mauris congue, ut ultrices tellus ultricies. Praesent nec massa eget metus laoreet rhoncus. Integer sem ligula, hendrerit at orci vel, posuere maximus sem. Nam lobortis dui in massa iaculis posuere ultricies in augue. Aenean pretium finibus egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id pulvinar ligula. Donec rutrum, nisi quis dignissim egestas, ex elit aliquam ante, a pellentesque enim ipsum in dui. Donec venenatis lacus sed lorem placerat, sed euismod sapien facilisis. In et sapien est. Suspendisse eu condimentum nisl."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table_cell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": null,
+                                "background": null
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Proin venenatis libero et varius interdum. Suspendisse sed mauris erat. Nunc egestas accumsan fermentum. Donec eget ex vel purus elementum laoreet. In egestas sapien at neque commodo porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed turpis felis, volutpat at justo at, efficitur vehicula lorem. Nam ac magna non justo cursus consectetur. Nulla eget faucibus libero. Morbi dictum imperdiet libero, in lacinia risus finibus quis. Mauris nisl ante, bibendum at tempor sed, lobortis eget erat. Mauris nec magna odio. In urna ligula, hendrerit id nibh nec, fermentum pharetra enim. Aenean luctus semper suscipit. Etiam at lectus magna. Praesent sagittis in arcu ut fermentum."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "hard_break"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table_row",
+                    "content": [
+                        {
+                            "type": "table_cell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": null,
+                                "background": null
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Etiam a convallis mauris. Etiam ornare mauris sed mi cursus, at vehicula enim elementum. Ut scelerisque sed quam sit amet fringilla. In nulla nisi, blandit eget odio eget, euismod vestibulum quam. Donec dapibus turpis ultricies sem dictum sollicitudin. Cras convallis quis ligula sed consequat. Nulla sed porttitor lectus. Nullam luctus pharetra diam eget faucibus. Mauris gravida felis nec cursus interdum."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "paragraph"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table_cell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": null,
+                                "background": null
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Nulla gravida bibendum neque id venenatis. Vestibulum molestie volutpat erat non ultricies. Etiam sed blandit nulla. Praesent rutrum quam nec nisl dignissim, vitae ornare ipsum pellentesque. Nullam ac massa at neque viverra egestas eget efficitur risus. Sed volutpat rhoncus sapien, sed scelerisque erat ornare nec. Duis volutpat tincidunt lacus quis finibus. Vivamus varius laoreet dapibus. Suspendisse finibus consequat tortor a dignissim. Duis accumsan massa leo, id bibendum neque egestas nec. Nam id nunc at nisl gravida sodales aliquam nec urna. Sed imperdiet quam nisi, nec efficitur velit consectetur eu."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "level": 3
+            }
+        },
+        {
+            "type": "paragraph"
         }
     ]
 }
