@@ -5,15 +5,15 @@ import type { DocumentNode, Settings, UploadResource } from './types/default';
 
 const nodesContext = (require as any).context('./nodes', false, /\.ts$/);
 
-async function transpileDocument(doc: DocumentNode, rules: any, config: any): Promise<string> {
+async function transpileDocument(doc: DocumentNode, rules: any, config: any): Promise<string[]> {
   let latex = '';
   let callcount = 0;
   console.time('transpileDocument');
+  const sentfiles: UploadResource[] = [];
 
   async function transpileNode(node: DocumentNode, indexArray: number[]): Promise<string> {
     callcount++;
     let result = '';
-    const sentfiles: UploadResource[] = [];
 
     const nodeType = node.type;
     const modulePath = `./${nodeType}.ts`;
@@ -37,17 +37,17 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
   latex += node;
   console.log('Total call: ' + callcount);
   console.timeEnd('transpileDocument');
-  return latex;
+  return [latex, sentfiles as never];
 }
 
-export async function generateLatexDocument(doc: DocumentNode, settings: Settings): Promise<string> {
+export async function generateLatexDocument(doc: DocumentNode, settings: Settings): Promise<string[]> {
   const packages = Object.entries(settings.package)
     .map(([pkg, options]) => `\\usepackage[${options}]{${pkg}}`)
     .join('\n');
   const preamble = settings.preamble;
   const content = await transpileDocument(doc, settings.rules, settings.config); // Await the transpileDocument function
 
-  return `\\documentclass{article}\n${packages}\n${preamble}\n\\begin{document}\n${content}\n\\end{document}`;
+  return [`\\documentclass{article}\n${packages}\n${preamble}\n\\begin{document}\n${content[0]}\n\\end{document}`,content[1]];
 }
 
 
