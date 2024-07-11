@@ -7,11 +7,19 @@
         "tabularx": "",
         "listings":"",
         "xcolor":"",
-        "wrapfig":""
+        "wrapfig":"",
+        "seqsplit":"",
+        "soul": ""
     },
     "preamble": "\\title{My Document}\\author{Author Name}\\date{\\today}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
     "config": {
-        "sanitizetext": true
+        "sanitizetext": true,
+        "splitconnectedlines": {
+            "character": 20,
+            "command": "\\seqsplit{#text#}"
+        },
+        "autoreplaceurl": true
+
     },
     "rules": {
         "heading": {
@@ -44,8 +52,9 @@
         "marks": {
             "strong": "\\textbf{#text#}",
             "em": "\\textit{#text#}",
-            "u": "\\underline{#text#}",
-            "code": "\\texttt{#text#}"
+            "u": "\\ul{#text#}",
+            "code": "\\texttt{#text#}",
+            "a": "\\url{#text#}"
         }
     }
 }

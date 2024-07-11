@@ -7,6 +7,8 @@
 \usepackage[]{listings}
 \usepackage[]{xcolor}
 \usepackage[]{wrapfig}
+\usepackage[]{seqsplit}
+\usepackage[]{soul}
 \title{My Document}\author{Author Name}\date{\today}
 \setlength{\parindent}{0pt}
 \lstdefinestyle{defaultstyle}{backgroundcolor=\color{white},basicstyle=\ttfamily\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\color[rgb]{0.1,0.5,0.1},keywordstyle=\color[rgb]{0.1,0.1,0.7},stringstyle=\color[rgb]{0.7,0.1,0.1},identifierstyle=\color{black},numberstyle=\tiny\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\color[rgb]{0.5,0.5,0.5},title=\lstname}
@@ -19,9 +21,9 @@ The following document can be used to test compiler configuration to ensure a su
 \end{quote}
 
 \subsection*{Section 1: paragraph}
-\textbf{Lorem} ipsum \textbf{dolor} sit \underline{amet}, \texttt{\textit{consectetur}} \texttt{adipiscing} \textit{elit}. Fusce interdum, \textbf{justo eu bibendum efficitur, nisl lorem gravida velit, at posuere ante urna vel est. Nam a mollis erat. Sed et commodo ligula. Nullam dapibus sed enim quis dictum. Etiam efficitur justo in massa dignissim, iaculis dictum libero dictum. Pellentesque fringilla eget justo ac porta.} \underline{Curabitur id magna eget ante pharetra pretium at fermentum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eu justo a ex maximus volutpat sit amet at tellus. Sed quis diam eget ligula laoreet viverra sed fringilla magna.} Vivamus consectetur ac nulla nec euismod. Vestibulum pretium nunc a blandit feugiat.
+\textbf{Lorem} ipsum \textbf{dolor} sit \ul{amet}, \texttt{\textit{consectetur}} \texttt{adipiscing} \textit{elit}. Fusce interdum, \textbf{justo eu bibendum efficitur, nisl lorem gravida velit, at posuere ante urna vel est. Nam a mollis erat. Sed et commodo ligula. Nullam dapibus sed enim quis dictum. Etiam efficitur justo in massa dignissim, iaculis dictum libero dictum. Pellentesque fringilla eget justo ac porta.} \ul{Curabitur id magna eget ante pharetra pretium at fermentum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eu justo a ex maximus volutpat sit amet at tellus. Sed quis diam eget ligula laoreet viverra sed fringilla magna.} \seqsplit{VivamusconsecteturacnullaneceuismodVestibulumpretiumnuncablanditfeugiatVivamusconsecteturacnullaneceuismodVestibulumpretiumnuncablanditfeugiat.} 
 
-\underline{\textbf{\textit{Morbi sollicitudin nibh ac mattis interdum.}}} Fusce auctor, odio a volutpat eleifend, velit risus aliquam nisi, faucibus accumsan diam felis et mauris. Cras vel feugiat leo. Cras urna sapien, dignissim sed efficitur id, scelerisque sed velit. 
+\ul{\textbf{\textit{Morbi sollicitudin nibh ac mattis interdum.}}} Fusce auctor, odio a volutpat eleifend, velit risus aliquam nisi, faucibus accumsan diam felis et mauris. Cras vel feugiat leo. Cras urna sapien, dignissim sed efficitur id, scelerisque sed velit. 
 
 
 \subsection*{Section 2: subsections}
