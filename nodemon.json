@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "src",
+        "test"
+    ],
+    "ext": "ts,tsx",
+    "ignore": [
+        "node_modules"
+    ],
+    "exec": "tsc && webpack --stats-error-details && node ./test/test.js"
+}
