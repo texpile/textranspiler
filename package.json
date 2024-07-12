@@ -1,5 +1,5 @@
 {
-  "name": "tex-compiler",
+  "name": "@texpile/textranspiler",
   "version": "1.0.0",
   "description": "",
   "build": "build/bundle.min.js",
