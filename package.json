@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "build": "build/bundle.min.js",
+  "main":"build/bundle.min.js",
+  "file": [
+    "build/bundle.min.js"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@texpile"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && webpack --stats-error-details",
