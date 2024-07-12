@@ -1,7 +1,7 @@
 {
   "name": "@texpile/textranspiler",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "Accurately transform ProseMirror JSON from Texpile editor to working LaTeX code",
   "build": "build/bundle.min.js",
   "main": "build/bundle.min.js",
   "file": [
