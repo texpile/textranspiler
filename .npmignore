@@ -1,5 +1,6 @@
 # Ignore everything
 *
 
-# But not the build directory
+# But not the build directory and its contents
 !build/
+!build/*
