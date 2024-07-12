@@ -12,7 +12,7 @@ export default function transpileCodeBlock(
     rules.code_block,
     {
       lang: node.attrs!.lang,
-      text: node.content![0].text!
+      text: node.content![0].text!,
     },
     true
   );

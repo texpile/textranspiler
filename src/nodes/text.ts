@@ -9,11 +9,7 @@ export default function transpileText(
   indexArray: number[]
 ): string {
   let result = node.text!;
-  if (config.autoreplaceurl) {
-    if (isUrl(result)) {
-      result = replacePlaceholders(config.marks.a, { text: result });
-    }
-  } else if (config.sanitizetext) {
+  if (config.sanitizetext) {
     result = sanitizeText(result);
   }
 
@@ -40,16 +36,4 @@ export default function transpileText(
   }
   return result;
 }
-//chatgpt generate stuff idk how this work
-function isUrl(text: string): boolean {
-  const urlPattern = new RegExp(
-    '^(https?:\\/\\/)?' +
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
-      '((\\d{1,3}\\.){3}\\d{1,3}))' +
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
-      '(\\?[;&a-z\\d%_.~+=-]*)?' +
-      '(\\#[-a-z\\d_]*)?$',
-    'i'
-  );
-  return !!urlPattern.test(text);
-}
+

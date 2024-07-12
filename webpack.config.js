@@ -1,5 +1,6 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -27,5 +28,13 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin()]
   },
+  plugins: [
+    // Other plugins...
+    new CopyPlugin({
+      patterns: [
+        { from: 'test/settings/default.json', to: 'defaultconfig.json' },
+      ],
+    }),
+  ],
   // devtool:"source-map"
 };

@@ -28,7 +28,6 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
     } catch (error) {
       console.error(`Error loading module for node type ${nodeType}`, error);
     }
-
     return result;
   }
 
