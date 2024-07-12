@@ -1,11 +1,12 @@
 {
   "name": "@texpile/textranspiler",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Accurately transform ProseMirror JSON from Texpile editor to working LaTeX code",
   "build": "build/bundle.min.js",
   "main": "build/bundle.min.js",
   "file": [
-    "build/bundle.min.js"
+    "build/bundle.min.js",
+    "build/defaultconfig.json"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@texpile"
@@ -18,7 +19,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "AGPL-3.0-only",
   "devDependencies": {
     "@types/node": "^20.14.2",
     "copy-webpack-plugin": "^12.0.2",
