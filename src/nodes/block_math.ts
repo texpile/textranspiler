@@ -9,11 +9,10 @@ export default function transpileInlineMath(
   indexArray: number[]
 ): string {
   const content = node.content?.[0]?.text as unknown as string;
-
   if (content === undefined) {
     throw new Error('node.content is undefined or does not contain the expected structure.');
   }
-  return replacePlaceholders(rules.inline_math, {
-    value: content
+  return replacePlaceholders(rules.block_math, {
+    text: content
   });
 }

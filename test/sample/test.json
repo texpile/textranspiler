@@ -2,23 +2,32 @@
     "type": "doc",
     "content": [
         {
-            "type": "paragraph",
+            "type": "paragraph"
+        },
+        {
+            "type": "block_math",
             "content": [
                 {
                     "type": "text",
-                    "text": "http://localhost:5173/documents/2ad60b3f-197b-4dbb-8dbb-b3e1f00561be/edit"
+                    "text": "asfas"
                 }
             ]
         },
         {
-            "type": "code_block",
-            "attrs": {
-                "lang": "Java"
-            },
+            "type": "paragraph",
             "content": [
                 {
                     "type": "text",
-                    "text": "public static "
+                    "text": "af"
+                },
+                {
+                    "type": "inline_math",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "asf"
+                        }
+                    ]
                 }
             ]
         },
