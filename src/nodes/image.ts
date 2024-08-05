@@ -1,3 +1,4 @@
+import { url } from 'inspector';
 import type { DocumentNode, UploadResource } from '../types/default';
 import { getNodeByIndex, replacePlaceholders } from '../utils';
 
@@ -16,14 +17,21 @@ export default function transpileImage(
 
   const filename = node.attrs.src.split('/').pop();
   const urlshort = node.attrs.src.split('/').slice(2).join('/');
-
-  sentfiles.push({ type: 'image', file: filename, url: urlshort });
+  if ((node.attrs.src as string).startsWith('public')) {
+    sentfiles.push({ type: 'image', file: filename, url: node.attrs.src });
+  } else {
+    sentfiles.push({ type: 'image', file: filename, url: urlshort });
+  }
   if (node.attrs?.align == 'center') {
-    return replacePlaceholders(rules.image.center, {
-      src: filename,
-      caps: node.attrs.alt,
-      scale: '' + (node.attrs.width ?? 0.5) / (node.attrs.maxWidth ?? 1)
-    },true);
+    return replacePlaceholders(
+      rules.image.center,
+      {
+        src: filename,
+        caps: node.attrs.alt,
+        scale: '' + (node.attrs.width ?? 0.5) / (node.attrs.maxWidth ?? 1)
+      },
+      true
+    );
   }
   //check if the previous 2 node is all paragraph
   const previousNode = getNodeByIndex(doc, indexArray.slice(0, -1).concat(indexArray[indexArray.length - 1] - 1));
@@ -37,17 +45,25 @@ export default function transpileImage(
   }
 
   if (node.attrs?.align == 'left') {
-    return replacePlaceholders(rules.image.left, {
+    return replacePlaceholders(
+      rules.image.left,
+      {
+        src: filename,
+        caps: node.attrs.alt,
+        scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
+        scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
+      },
+      true
+    );
+  }
+  return replacePlaceholders(
+    rules.image.right,
+    {
       src: filename,
       caps: node.attrs.alt,
       scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
       scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
-    },true);
-  }
-  return replacePlaceholders(rules.image.right, {
-    src: filename,
-    caps: node.attrs.alt,
-    scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
-    scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
-  },true);
+    },
+    true
+  );
 }
