@@ -2,7 +2,7 @@ import { url } from 'inspector';
 import type { DocumentNode, UploadResource } from '../types/default';
 import { getNodeByIndex, replacePlaceholders } from '../utils';
 
-export default function transpileImage(
+export default async function transpileImage(
   node: DocumentNode,
   rules: any,
   config: any,
@@ -22,12 +22,20 @@ export default function transpileImage(
   } else {
     sentfiles.push({ type: 'image', file: filename, url: urlshort });
   }
+
+  const imageContent = await Promise.all(
+    node.content!.map((cell, idx) =>
+      transpileNode(cell, indexArray.concat(idx))
+    )
+  );
+
+
   if (node.attrs?.align == 'center') {
     return replacePlaceholders(
       rules.image.center,
       {
         src: filename,
-        caps: node.attrs.alt,
+        caps: imageContent.join(""),
         scale: '' + (node.attrs.width ?? 0.5) / (node.attrs.maxWidth ?? 1)
       },
       true
@@ -49,7 +57,7 @@ export default function transpileImage(
       rules.image.left,
       {
         src: filename,
-        caps: node.attrs.alt,
+        caps: imageContent.join(""),
         scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
         scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
       },
@@ -60,7 +68,7 @@ export default function transpileImage(
     rules.image.right,
     {
       src: filename,
-      caps: node.attrs.alt,
+      caps: imageContent.join(""),
       scale: '' + (node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1),
       scale2: '' + ((node.attrs.width ?? 1) / (node.attrs.maxWidth ?? 1) - rules.image.margin)
     },
