@@ -14,7 +14,7 @@
         "soul": "",
         "biblatex":"backend=biber,style=authoryear"
     },
-    "preamble": "\\title{#title#}\\author{#author#}\\date{#date#}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
+    "preamble": "\\addbibresource{references.bib}\n\\title{#title#}\\author{#author#}\\date{#date#}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
     "document": "\\begin{document}\n#content#\n\\printbibliography\n\\end{document}",
     "config": {
         "sanitizetext": true,
