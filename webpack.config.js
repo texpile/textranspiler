@@ -33,6 +33,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'test/settings/default.json', to: 'defaultconfig.json' },
+        { from: 'test/settings/mla.json', to: 'mla.json' }
       ],
     }),
   ],

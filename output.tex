@@ -1,23 +1,43 @@
-\documentclass{article}
-\usepackage[margin=1in]{geometry}
+\documentclass[12pt,letterpaper]{article}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=mla,backend=biber]{biblatex}
+\usepackage[letterpaper,top=1.0in,bottom=1.0in,left=1.0in,right=1.0in]{geometry}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage{fancyhdr}
 \usepackage[utf8]{inputenc}
-\usepackage[]{graphicx}
-\usepackage[]{amsmath}
-\usepackage[]{tabularx}
-\usepackage[]{listings}
-\usepackage[]{xcolor}
-\usepackage[]{wrapfig}
-\usepackage[]{seqsplit}
-\usepackage[]{soul}
-\usepackage[backend=biber,style=authoryear]{biblatex}
-\title{Untitled}\author{Anonymous}\date{\today}
-\setlength{\parindent}{0pt}
-\lstdefinestyle{defaultstyle}{backgroundcolor=\color{white},basicstyle=\ttfamily\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\color[rgb]{0.1,0.5,0.1},keywordstyle=\color[rgb]{0.1,0.1,0.7},stringstyle=\color[rgb]{0.7,0.1,0.1},identifierstyle=\color{black},numberstyle=\tiny\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\color[rgb]{0.5,0.5,0.5},title=\lstname}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\doublespacing
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{ \thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength\headsep{0.333in}
+\newcommand{\bibent}{\noindent\hangindent 40pt}
+\newenvironment{workscited}{\newpage\begin{center}Works Cited\end{center}}{\newpage}
+\renewcommand{\maketitle}{\makemlaheader}
+\newcommand{\makemlaheader}{ \\  \\  \\ \today\\\begin{center}\textnormal{Untitled}\end{center}}
+\addbibresource{references.bib}
+\setlength{\parindent}{0.5in}
 
 \begin{document}
-\section*{The basics:}\begin{quote}
+\noindent Anonymous\\Unknown\\Unknown\\\today\\
+\begin{center}\textnormal{Untitled}\end{center}
+\begin{flushleft}
+\section{The basics:}
+\begin{quote}
 
-Welcome to Texpile, a \textbf{WYSIWYM} \seqsplit{(What-You-See-Is-What-You-Mean)} editor. Texpile uses a compiler to convert your document into a specific format based on a chosen template. To see the transformed document, click the "Compile" button in the top right corner. Your final document will be displayed in the Preview Box on the right.
+Welcome to Texpile, a WYSIWYM (What-You-See-Is-What-You-Mean) editor. Texpile uses a compiler to convert your document into a specific format based on a chosen template. To see the transformed document, click the "Compile" button in the top right corner. Your final document will be displayed in the Preview Box on the right.
 
 \end{quote}
 
@@ -25,15 +45,17 @@ Welcome to Texpile, a \textbf{WYSIWYM} \seqsplit{(What-You-See-Is-What-You-Mean)
 Texpile will also also highlight some of you're mistake in the document. Click on the highlighted texts to fix these possble errors.
 
 
-\section*{But there is more!}\subsection*{Mathematics}
-Texpile comes within \ul{first party} mathmatics editing support.
+\section{But there is more!}
+\subsection{Mathematics}
 
-You can use the shortcut \texttt{CTRL-M or CMD-M} to create an inline math field to type your equation. Like this one: $\lim_{x\to3}3x+1$
+Texpile comes within first party mathmatics editing support.
 
-You can also use the shortcut \texttt{CTRL-SHIFT-M or CMD-SHIFT-M} to create a block math field Like this one:
+You can use the shortcut CTRL-M or CMD-M to create an inline math field to type your equation. Like this one: $\lim_{x\to3}3x+1$
+
+You can also use the shortcut CTRL-SHIFT-M or CMD-SHIFT-M to create a block math field Like this one:
 
 
-\begin{equation}
+\[
 C = A \times B = \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22}
@@ -46,21 +68,23 @@ b_{21} & b_{22}
 a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
 a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
 \end{bmatrix}
-\end{equation}\subsection*{Code blocks}
-Texpile allows you to create code blocks. Press \texttt{CTRL-SHIFT-`:}
+\]\subsection{Code blocks}
 
-\begin{lstlisting}[style=defaultstyle, language=Java, caption={}]
+Texpile allows you to create code blocks. Press CTRL-SHIFT-`:
+
+\begin{verbatim}
 class Main{
   public static void main(String args[]){
     System.out.println("Hi");
   }
 }
-\end{lstlisting}
-\subsection*{Tables}
+\end{verbatim}
+\subsection{Tables}
+
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
 
-Texpile creates \seqsplit{professional-looking} documents with ease.
+Texpile creates professional-looking documents with ease.
  &
 Texpile is versatile: you can use one of the prebuilt templates or build your own.
  \\\hline
@@ -69,7 +93,8 @@ Texpile saves your document online so you can access it anywhere on any device.
 Texpile uses LaTeX to produce your final document, but you will never have to worry about compile errors again.
  \\\hline
 \end{tabularx}
-\subsection*{Images}
+\subsection{Images}
+
 You can add images by simply pasting or dragging it here \cite{doe2021conference}.
 
 
@@ -82,5 +107,6 @@ You can add images by simply pasting or dragging it here \cite{doe2021conference
 
 
 
-\printbibliography
+\end{flushleft}
+\begin{workscited}\printbibliography[heading=none]\end{workscited}
 \end{document}

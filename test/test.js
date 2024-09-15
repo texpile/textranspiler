@@ -1,6 +1,6 @@
 const fs = require('fs');
 const document = require('./sample/test.json');
-const settings = require('./settings/default.json');
+const settings = require('./settings/mla.json');
 const { generateLatexDocument } = require('../build/bundle.min.js');
 
 async function main() {

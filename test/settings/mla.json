@@ -1,0 +1,65 @@
+{
+    "version": 1.0,
+    "documentclass": "article",
+    "documentoptions": "12pt,letterpaper",
+    "package": {
+        "babel": "american",
+        "csquotes": "",
+        "biblatex": "style=mla,backend=biber",
+        "geometry": "letterpaper,top=1.0in,bottom=1.0in,left=1.0in,right=1.0in",
+        "times": "",
+        "setspace": "",
+        "rotating": "",
+        "fancyhdr": "",
+        "inputenc": "utf8",
+        "tabularx": "",
+        "amsmath": "",
+        "graphicx": "",
+        "xcolor": ""
+    },
+    "preamble": "\\doublespacing\n\\pagestyle{fancy}\n\\lhead{}\n\\chead{}\n\\rhead{#lastname# \\thepage}\n\\lfoot{}\n\\cfoot{}\n\\rfoot{}\n\\renewcommand{\\headrulewidth}{0pt}\n\\renewcommand{\\footrulewidth}{0pt}\n\\setlength\\headsep{0.333in}\n\\newcommand{\\bibent}{\\noindent\\hangindent 40pt}\n\\newenvironment{workscited}{\\newpage\\begin{center}Works Cited\\end{center}}{\\newpage}\n\\renewcommand{\\maketitle}{\\makemlaheader}\n\\newcommand{\\makemlaheader}{#studentname# \\\\ #professorname# \\\\ #coursename# \\\\ \\today\\\\\\begin{center}\\textnormal{#title#}\\end{center}}\n\\addbibresource{references.bib}\n\\setlength{\\parindent}{0.5in}\n",
+    "document": "\\begin{document}\n\\noindent #author#\\\\#teacher#\\\\#subject#\\\\\\today\\\\\n\\begin{center}\\textnormal{#title#}\\end{center}\n\\begin{flushleft}\n#content#\n\\end{flushleft}\n\\begin{workscited}\\printbibliography[heading=none]\\end{workscited}\n\\end{document}",
+    "config": {
+        "sanitizetext": true,
+        "splitconnectedlines": {
+            "character": 0        
+        }
+    },
+    "rules": {
+        "heading": {
+            "1": "\\section{#text#}\n",
+            "2": "\\subsection{#text#}\n",
+            "3": "\\subsubsection{#text#}\n",
+            "4": "\\subsubsection{#text#}\n",
+            "5": "\\subsubsection{#text#}\n"
+        },
+        "paragraph": "#text#",
+        "code_block": "\\begin{verbatim}\n#text#\n\\end{verbatim}",
+        "inline_math": "$#text#$",
+        "block_math": "\\[\n#text#\n\\]",
+        "blockquote": "\\begin{quote}\n#content#\n\\end{quote}",
+        "list": {
+            "ordered": "\\begin{enumerate}\n#content#\n\\end{enumerate}",
+            "bullet": "\\begin{itemize}\n#content#\n\\end{itemize}"
+        },
+        "list_item": "\\item #content#",
+        "nolabel_list_item": "\\item[] #content#",
+        "image": {
+            "center": "\\begin{figure}[h]\n\\centering\n\\includegraphics[width=#scale#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{figure}",
+            "margin": "0.02",
+            "left": "\\begin{wrapfigure}{l}{#scale#\\textwidth}\n\\centering\n\\includegraphics[width=#scale2#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{wrapfigure}",
+            "right": "\\begin{wrapfigure}{r}{#scale#\\textwidth}\n\\centering\n\\includegraphics[width=#scale2#\\textwidth]{#src#}\n\\caption{#caps#}\n\\end{wrapfigure}"
+        },
+        "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
+        "table_row": "#content# \\\\\\hline",
+        "table_cell": "#content# &",
+        "citation": "\\cite{#key#}",
+        "marks": {
+            "strong": "#text#",
+            "em": "#text#",
+            "u": "#text#",
+            "code": "#text#",
+            "a": "#text#"
+        }
+    }
+}

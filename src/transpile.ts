@@ -41,26 +41,32 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
 
 export async function generateLatexDocument(
   doc: DocumentNode, 
-  settings: Settings, 
-  config: {documentclass?:string,  title?: string, author?: string, date?: string } = {}
+  settings: any, 
+  config: {documentclass?: string, documentoptions?: string, title?: string, author?: string, teacher?:string, subject?:string, date?: string } = {}
 ): Promise<string[]> {
   
   const packages = Object.entries(settings.package)
-    .map(([pkg, options]) => `\\usepackage[${options}]{${pkg}}`)
+    .map(([pkg, options]) => `\\usepackage${options ? `[${options}]` : ''}{${pkg}}`)
     .join('\n');
   
   const replacements = {
     title: config.title || "Untitled",
     author: config.author || "Anonymous",
-    date: config.date || "\\today"
+    teacher: config.teacher || "Unknown",
+    subject: config.subject || "Unknown",
+    date: config.date || "\\today",
   };
-  
   const preamble = replacePlaceholders(settings.preamble, replacements);
-  
   const content = await transpileDocument(doc, settings.rules, settings.config);
+  const documentClass = config.documentclass || settings.documentclass || "article";
+  const documentOptions = config.documentoptions || settings.documentoptions || "12pt";
+  const documentTemplate = replacePlaceholders(settings.document, {
+    content: content[0],
+    ...replacements
+  });
 
   return [
-    `\\documentclass{${config.documentclass || "article"}}\n${packages}\n${preamble}\n\\begin{document}\n${content[0]}\n\\printbibliography\n\\end{document}`, 
+    `\\documentclass[${documentOptions}]{${documentClass}}\n${packages}\n${preamble}\n${documentTemplate}`, 
     content[1]
   ];
 }
