@@ -1,6 +1,6 @@
 {
     "version": 1.0,
-    
+    "documentclass":"article",
     "package": {
         "geometry": "margin=1in",
         "inputenc": "utf8",
@@ -11,9 +11,11 @@
         "xcolor":"",
         "wrapfig":"",
         "seqsplit":"",
-        "soul": ""
+        "soul": "",
+        "biblatex":"backend=biber,style=authoryear"
     },
-    "preamble": "\\title{title}\\author{test}\\date{\\today}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
+    "preamble": "\\title{#title#}\\author{#author#}\\date{#date#}\n\\setlength{\\parindent}{0pt}\n\\lstdefinestyle{defaultstyle}{backgroundcolor=\\color{white},basicstyle=\\ttfamily\\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\\color[rgb]{0.1,0.5,0.1},keywordstyle=\\color[rgb]{0.1,0.1,0.7},stringstyle=\\color[rgb]{0.7,0.1,0.1},identifierstyle=\\color{black},numberstyle=\\tiny\\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\\color[rgb]{0.5,0.5,0.5},title=\\lstname}\n",
+    "document": "\\begin{document}\n#content#\n\\printbibliography\n\\end{document}",
     "config": {
         "sanitizetext": true,
         "splitconnectedlines": {
@@ -31,7 +33,7 @@
         },
         "paragraph": "#text#",
         "code_block": "\\begin{lstlisting}[style=defaultstyle, language=#lang#, caption={}]\n#text#\n\\end{lstlisting}",
-        "inline_math": "$#value#$",
+        "inline_math": "$#text#$",
         "block_math": "\\begin{equation}\n#text#\n\\end{equation}",
         "blockquote": "\\begin{quote}\n#content#\n\\end{quote}",
         "list": {
@@ -49,6 +51,7 @@
         "table": "\\begin{tabularx}{\\textwidth}{#columns#}\n\\hline\n#content#\n\\end{tabularx}",
         "table_row": "#content# \\\\\\hline",
         "table_cell": "#content# &",
+        "citation":"\\cite{#key#}",
         "marks": {
             "strong": "\\textbf{#text#}",
             "em": "\\textit{#text#}",

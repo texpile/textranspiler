@@ -1,4 +1,5 @@
 import type { DocumentNode, Settings, UploadResource } from './types/default';
+import { replacePlaceholders } from './utils';
 // import document from './sample/test.json';
 // import settings from './settings/default.json';
 // import fs from "fs"
@@ -38,14 +39,30 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
   return [latex, JSON.stringify(sentfiles)];
 }
 
-export async function generateLatexDocument(doc: DocumentNode, settings: Settings): Promise<string[]> {
+export async function generateLatexDocument(
+  doc: DocumentNode, 
+  settings: Settings, 
+  config: {documentclass?:string,  title?: string, author?: string, date?: string } = {}
+): Promise<string[]> {
+  
   const packages = Object.entries(settings.package)
     .map(([pkg, options]) => `\\usepackage[${options}]{${pkg}}`)
     .join('\n');
-  const preamble = settings.preamble;
-  const content = await transpileDocument(doc, settings.rules, settings.config); // Await the transpileDocument function
+  
+  const replacements = {
+    title: config.title || "Untitled",
+    author: config.author || "Anonymous",
+    date: config.date || "\\today"
+  };
+  
+  const preamble = replacePlaceholders(settings.preamble, replacements);
+  
+  const content = await transpileDocument(doc, settings.rules, settings.config);
 
-  return [`\\documentclass{article}\n${packages}\n${preamble}\n\\begin{document}\n${content[0]}\n\\end{document}`,content[1]];
+  return [
+    `\\documentclass{${config.documentclass || "article"}}\n${packages}\n${preamble}\n\\begin{document}\n${content[0]}\n\\printbibliography\n\\end{document}`, 
+    content[1]
+  ];
 }
 
 

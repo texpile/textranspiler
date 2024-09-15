@@ -9,56 +9,78 @@
 \usepackage[]{wrapfig}
 \usepackage[]{seqsplit}
 \usepackage[]{soul}
-\title{title}\author{test}\date{\today}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\title{Untitled}\author{Anonymous}\date{\today}
 \setlength{\parindent}{0pt}
 \lstdefinestyle{defaultstyle}{backgroundcolor=\color{white},basicstyle=\ttfamily\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,commentstyle=\color[rgb]{0.1,0.5,0.1},keywordstyle=\color[rgb]{0.1,0.1,0.7},stringstyle=\color[rgb]{0.7,0.1,0.1},identifierstyle=\color{black},numberstyle=\tiny\color[rgb]{0.5,0.5,0.5},stepnumber=1,numbersep=10pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=4,frame=single,rulecolor=\color[rgb]{0.5,0.5,0.5},title=\lstname}
 
 \begin{document}
+\section*{The basics:}\begin{quote}
+
+Welcome to Texpile, a \textbf{WYSIWYM} \seqsplit{(What-You-See-Is-What-You-Mean)} editor. Texpile uses a compiler to convert your document into a specific format based on a chosen template. To see the transformed document, click the "Compile" button in the top right corner. Your final document will be displayed in the Preview Box on the right.
+
+\end{quote}
+
+
+Texpile will also also highlight some of you're mistake in the document. Click on the highlighted texts to fix these possble errors.
+
+
+\section*{But there is more!}\subsection*{Mathematics}
+Texpile comes within \ul{first party} mathmatics editing support.
+
+You can use the shortcut \texttt{CTRL-M or CMD-M} to create an inline math field to type your equation. Like this one: $\lim_{x\to3}3x+1$
+
+You can also use the shortcut \texttt{CTRL-SHIFT-M or CMD-SHIFT-M} to create a block math field Like this one:
+
+
+\begin{equation}
+C = A \times B = \begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}
+\begin{bmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{bmatrix}
+= \begin{bmatrix}
+a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+\end{bmatrix}
+\end{equation}\subsection*{Code blocks}
+Texpile allows you to create code blocks. Press \texttt{CTRL-SHIFT-`:}
+
+\begin{lstlisting}[style=defaultstyle, language=Java, caption={}]
+class Main{
+  public static void main(String args[]){
+    System.out.println("Hi");
+  }
+}
+\end{lstlisting}
+\subsection*{Tables}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+
+Texpile creates \seqsplit{professional-looking} documents with ease.
+ &
+Texpile is versatile: you can use one of the prebuilt templates or build your own.
+ \\\hline
+Texpile saves your document online so you can access it anywhere on any device.
+ &
+Texpile uses LaTeX to produce your final document, but you will never have to worry about compile errors again.
+ \\\hline
+\end{tabularx}
+\subsection*{Images}
+You can add images by simply pasting or dragging it here \cite{doe2021conference}.
 
 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{73b15600-19be-4f58-91f4-086712377c24-1725259117976.png}
-\caption{Qinzhi(Louis) Li}
+\includegraphics[width=0.5857142857142857\textwidth]{x_square.png}
+\caption{Figure 1: Image}
 \end{figure}
 
-What are the expectations that you have of this class?
-
-\begin{itemize}
-\item 
-In this class, I expect myself to dive deeper into mathematics. Multivariable Calculus is one of the fundamental courses of math and used in engineering and computer science. I also hope I can build onto of what I learn in Calculus BC.
-
-\end{itemize}
 
 
-
-Do you have a job now? What do you do and how many hours do you work?
-
-\begin{itemize}
-\item 
-I currently do not have a job.
-
-\end{itemize}
-
-
-
-What are some of your hobbies? What is your major?
-
-\begin{itemize}
-\item 
-In my free time, I like to code software and make various gadgets that interact with computers in some way. My current planned major is Undeclared Engineering, but I am mainly interested in Computer Science, Computer Engineering, Mechanical Engineering, Electrical engineering, and Aerospace Engineering
-
-\end{itemize}
-
-Share something interesting about yourself. 
-
-\begin{itemize}
-\item 
-I’m currently developing software that lets you create professional documents in seconds. In fact, I’m using it to write this All About Me card.
-
-\end{itemize}
-
-
-
+\printbibliography
 \end{document}
