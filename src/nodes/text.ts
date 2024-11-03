@@ -1,14 +1,15 @@
-import type { DocumentNode } from '../types/default';
+import type { DocumentNode, DocumentSettings } from '../types/default';
 import { replacePlaceholders, sanitizeText } from '../utils';
 
 export default function transpileText(
   node: DocumentNode,
-  rules: any,
-  config: any,
+  rules: DocumentSettings['rules'],
+  config: DocumentSettings['config'],
   transpileNode: Function,
   indexArray: number[]
 ): string {
   let result = node.text!;
+
   if (config.sanitizetext) {
     result = sanitizeText(result);
   }
@@ -28,12 +29,14 @@ export default function transpileText(
 
   if (node.marks) {
     node.marks.forEach(mark => {
-      const textRule = rules.marks[mark.type];
+      const textRule = rules.marks[mark.type as keyof typeof rules.marks];
       if (textRule) {
         result = replacePlaceholders(textRule, { text: result });
       }
     });
   }
+
+  result = result.replace('\t', config.escapesequences.tab);
+
   return result;
 }
-

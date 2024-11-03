@@ -1,4 +1,4 @@
-import type { DocumentNode, Settings, UploadResource } from './types/default';
+import type { DocumentNode, DocumentSettings, UploadResource } from './types/default';
 import { replacePlaceholders } from './utils';
 // import document from './sample/test.json';
 // import settings from './settings/default.json';
@@ -6,7 +6,7 @@ import { replacePlaceholders } from './utils';
 
 const nodesContext = (require as any).context('./nodes', false, /\.ts$/);
 
-async function transpileDocument(doc: DocumentNode, rules: any, config: any): Promise<string[]> {
+async function transpileDocument(doc: DocumentNode, rules: DocumentSettings['rules'], config: DocumentSettings['config']): Promise<string[]> {
   let latex = '';
   let callcount = 0;
   console.time('transpileDocument');
@@ -41,7 +41,7 @@ async function transpileDocument(doc: DocumentNode, rules: any, config: any): Pr
 
 export async function generateLatexDocument(
   doc: DocumentNode, 
-  settings: any, 
+  settings: DocumentSettings, 
   config: {documentclass?: string, documentoptions?: string, title?: string, author?: string, teacher?:string, subject?:string, date?: string } = {}
 ): Promise<string[]> {
   
@@ -59,7 +59,7 @@ export async function generateLatexDocument(
   const preamble = replacePlaceholders(settings.preamble, replacements);
   const content = await transpileDocument(doc, settings.rules, settings.config);
   const documentClass = config.documentclass || settings.documentclass || "article";
-  const documentOptions = config.documentoptions || settings.documentoptions || "12pt";
+  const documentOptions = config.documentoptions || "12pt";
   const documentTemplate = replacePlaceholders(settings.document, {
     content: content[0],
     ...replacements
