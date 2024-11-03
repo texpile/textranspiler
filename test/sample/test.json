@@ -1,14 +1,1 @@
-{
-    "type": "doc",
-    "content": [
-        {
-            "type": "paragraph",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "\tWelcome to the Texpile MLA compiler! Your documents will be automatically converted into MLA format. Remember, you can easily add citations using the citation manager in the bottom right corner."
-                }
-            ]
-        }
-    ]
-}
+{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"\t\"Welcome to the Texpile MLA compiler! Your documents will be automatically converted into MLA format. Remember, you can easily add citations using the citation manager in the bottom right corner.\""}]}]}
